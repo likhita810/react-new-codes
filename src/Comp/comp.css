@@ -1,0 +1,39 @@
+body{
+    text-align: center;
+    background: black;
+    color: white;
+    font-style: oblique;
+}
+
+input {
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 25%;
+    margin-top: 15px;
+}
+
+button {
+    margin-left: 10px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 2px solid black; */
+}
+
+.box {
+    width: 20%;
+    gap: 10px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+    object-fit: fill;
+    border: 1px solid white;
+}

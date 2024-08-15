@@ -1,0 +1,152 @@
+body {
+    background-color: black;
+    width: 1200px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.nav {
+    display: flex;
+    margin: 0 auto;
+}
+
+.nav h1 {
+    font-size: 50px;
+    margin-left: 40%;
+    color: rgb(248, 248, 97);
+}
+
+.form {
+    padding-left: 20px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.form div {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+p {
+    color:rgb(245, 245, 167);
+}
+
+input {
+    width: 250px;
+}
+
+.form button {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: blue;
+    color: white;
+}
+
+.nav img{
+    width: 100px;
+    height: 50px;
+    margin-left: 10%;
+    margin-top: 40px;
+}
+
+.nav h2 {
+    color: rgb(248, 248, 97);
+    float: right;
+    margin-top: 45px;
+}
+
+.box {
+    display: flex;
+    color: rgb(248, 248, 97);
+    margin-left: 30px;
+    width: 90%;
+}
+
+.box .innerBox {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.box .innerBox div {
+    display: flex;
+    width: 85%;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 6px rgb(245, 245, 189);
+}
+
+.box .innerBox div h3 {
+    width: 50%;
+    padding-left: 5px;
+    margin-right: 6px;
+}
+
+.box .innerBox div p {
+    width: 30%;
+    margin-right: 6px;
+
+}
+
+.box .innerBox .btns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    width: 25%;
+    box-shadow: none;
+}
+
+.done {
+    background-color: rgb(124, 248, 124);
+}
+
+.pend {
+    background-color: rgb(248, 159, 127);
+}
+
+.trash {
+    background-color: coral;
+}
+
+.del {
+    background-color: red;
+}
+
+.restore {
+    background-color: aliceblue;
+}
+
+
+@media (max-width: 768px) {
+    .tasks {
+        display: inline-block;
+        margin:  20px 20%;
+    }
+
+   .form div{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 30%;
+   }
+
+   .form div input {
+    margin-left: 12%;
+   }
+
+
+    .box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box .innerBox {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .box .innerBox div {
+        margin-left: 10%;
+
+    }
+}
