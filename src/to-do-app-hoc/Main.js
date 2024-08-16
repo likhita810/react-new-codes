@@ -1,42 +1,38 @@
-import React from 'react'
+import React from 'react';
 import PendingComp from './PendingComp';
-import CompletedComp from './CompletedComp'
+import CompletedComp from './CompletedComp';
 import ArchieveComp from './ArchieveComp';
-import './comp.css'
-import TimeComp from './timer';
+import TimeComp from './TimeComp';
 
 class MainComp extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            todos:[],
+            todos: [],
             title: "",
             desc: "",
             id: 0
-        }
+        };
     }
 
-    getPendingStatus = (todoId) => {
-        const pendingItems = this.state.todos.filter(item => item.status === false && item.active === true)
-        return pendingItems
+    getPendingStatus = () => {
+        return this.state.todos.filter(item => item.status === false && item.active === true);
     }
 
-    getCompletedStatus = (todoId) => {
-        const completedItems = this.state.todos.filter(item => item.status === true && item.active === true)
-        return completedItems
+    getCompletedStatus = () => {
+        return this.state.todos.filter(item => item.status === true && item.active === true);
     }
 
     getArchieveItems = () => {
-        const archievedItems = this.state.todos.filter(item => item.active === false)
-        return archievedItems
+        return this.state.todos.filter(item => item.active === false);
     }
 
     handleTitle = (e) => {
-        this.setState({title: e.target.value})
+        this.setState({ title: e.target.value });
     }
 
     handleDesc = (e) => {
-        this.setState({desc: e.target.value})
+        this.setState({ desc: e.target.value });
     }
 
     addToDo = () => {
@@ -46,42 +42,56 @@ class MainComp extends React.Component {
             desc: this.state.desc,
             status: false,
             active: true
-        }
+        };
 
-        const item = [...this.state.todos, newItem]
-        console.log(newItem.id)
-        console.log(item)
-        this.setState({todos: item, id: this.state.id + 1})
+        this.setState(prevState => ({
+            todos: [...prevState.todos, newItem],
+            id: prevState.id + 1,
+            title: "",
+            desc: ""
+        }));
+    }
+
+    updateTodos = (todos) => {
+        this.setState({ todos });
     }
 
     render() {
-        return(
+        return (
             <>
-                <h1 style={{color:'black'}}>To Do Application</h1>
-
-                <TimeComp></TimeComp>
-
+                <h1 style={{color:"black"}}>To Do Application</h1>
+                <TimeComp />
                 <div className='form'>
                     <div>
                         <p>Title:</p> 
-                        <input type='text' onChange={(e) => this.handleTitle(e)}></input>
+                        <input type='text' value={this.state.title} onChange={this.handleTitle} />
                     </div>
                     <div>
                         <p>Description:</p> 
-                        <input type='text' onChange={(e) => this.handleDesc(e)}></input>
+                        <input type='text' value={this.state.desc} onChange={this.handleDesc} />
                     </div>
-                    <button onClick = {() => this.addToDo()}>Add Task</button>
+                    <button onClick={this.addToDo}>Add Task</button>
                 </div>
-
-                <div className='box' style={{color:"white"}}>
-                    <PendingComp todos={this.state.todos} prop1={this.getPendingStatus()}></PendingComp>
-                    <CompletedComp todos={this.state.todos} prop1 = {this.getCompletedStatus()}></CompletedComp>
-                    <ArchieveComp todos={this.state.todos} prop1 = {this.getArchieveItems()}></ArchieveComp>
+                <div>
+                    <PendingComp 
+                        todos={this.state.todos} 
+                        tasks={this.getPendingStatus()} 
+                        updateTodos={this.updateTodos} 
+                    />
+                    <CompletedComp 
+                        todos={this.state.todos} 
+                        tasks={this.getCompletedStatus()} 
+                        updateTodos={this.updateTodos} 
+                    />
+                    <ArchieveComp 
+                        todos={this.state.todos} 
+                        tasks={this.getArchieveItems()} 
+                        updateTodos={this.updateTodos} 
+                    />
                 </div>
             </>
-        )
+        );
     }
 }
 
-
-export default MainComp
+export default MainComp;

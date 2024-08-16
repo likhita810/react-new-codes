@@ -1,45 +1,31 @@
-import React from 'react'
-import _isEqual from "lodash/isEqual"
-import hocComp from './Comp'
+import React from 'react';
+import _isEqual from "lodash/isEqual";
+import hocComp from './hocComp';
 
-class StatusComp extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-     shouldComponentUpdate(nextProps, nextState) {
-        if (_isEqual(nextProps.prop1, this.props.prop1)) {
-            return false
-        } else {
-            return true
-        }
+class CompletedComp extends React.Component {
+    shouldComponentUpdate(nextProps) {
+        return !_isEqual(nextProps.tasks, this.props.tasks);
     }
 
     render() {
-
-        return(
-            <>
-                <div className='innerBox'>
-                {console.log('completed comp')}
-
-                    <h2>Completed Tasks</h2>
-                    {/* {
-                        this.props.prop1.map((item) => (
-                            <div key={item.id}>
-                                <h3>{item.title}</h3>
-                                <p>{item.desc}</p>
-                                <div className='btns'>
-                                    <button className='pend' onClick={()=>this.props.prop2(item.id)}>Pending</button>
-                                    <button className='trash' onClick={()=> this.props.prop3(item.id)}>Trash</button>
-                                    <button className='del' onClick={() => this.props.prop4(item.id)}>Delete</button>
-                                </div>
-                            </div>
-                        ))
-                    } */}
-                </div>
-            </>
-        )
+        const { tasks, changeCompletionStatus, changeActiveStatus, deleteTask } = this.props;
+        return (
+            <div className='innerBox'>
+                <h2>Completed Tasks</h2>
+                {tasks.map(item => (
+                    <div key={item.id}>
+                        <h3>{item.title}</h3>
+                        <p>{item.desc}</p>
+                        <div className='btns'>
+                            <button className='pend' onClick={() => changeCompletionStatus(item.id)}>Pending</button>
+                            <button className='trash' onClick={() => changeActiveStatus(item.id)}>Trash</button>
+                            <button className='del' onClick={() => deleteTask(item.id)}>Delete</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        );
     }
 }
 
-export default hocComp(StatusComp)
+export default hocComp(CompletedComp);

@@ -15,14 +15,12 @@ import StateDemo from './Components/StateDemo.js'
 import RootComp from './Components/RootComp.js';
 import ToDoComp from './to-do-app/ToDoComp.js';
 
-
 function App() {
   return (
     <div className="App">
       {/* <ChildComp></ChildComp> */}
       {/* <Comp></Comp> */}
-      {/* <ContactManager></ContactManager> */}
-
+      <ContactManager></ContactManager>
 
       {/* <ClothingCategory data={clothing}></ClothingCategory>
       <p>-------------------------------------------------------------------------------</p>
@@ -38,7 +36,7 @@ function App() {
       {/* <PureComp></PureComp> */}
       {/* <StateDemo></StateDemo> */}
       {/* <RootComp></RootComp> */}
-      <ToDoComp></ToDoComp>
+      {/* <ToDoComp></ToDoComp> */}
     </div>
   );
 }

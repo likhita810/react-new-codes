@@ -41,12 +41,15 @@ class ContactManager extends React.Component{
                 cemail: this.state.ipEmail
     
             }).then((res) => {
-                const temp=this.state.contacts;
+                const temp=[...this.state.contacts];
                 const index=temp.findIndex((item)=>item.id===res.data.id)
 
-                temp.splice(index,res.data);
-
-                this.setState({ contacts: temp })
+                if (index !== -1) {
+                    temp[index] = res.data;
+                    this.setState({contacts: temp})
+                } else {
+                    console.log('item not found')
+                }
             }).catch((err) => this.setState({ statusMsg: "some error occurred while updating please try again" }))
             this.setState({isUpdated:!(this.state.isUpdated)})
         }
@@ -94,7 +97,7 @@ class ContactManager extends React.Component{
     <p style={{color:"red"}}>{this.state.statusMsg}</p>
     {
         this.state.contacts.map((item)=>(
-            <div style={{display: 'flex', gap: '20px', margin: '0 auto', width: '70%'}}>
+            <div style={{display: 'flex', gap: '20px', margin: '0 auto', width: '70%'}} key={item.id}>
                 <h2 style={{width: '30%',textAlign: 'left'}}>Name: {item.cname}</h2>
                 <p style={{width: '30%',textAlign: 'left'}}>Phone: {item.cno}</p>
                 <p style={{width: '30%',textAlign: 'left'}}>Email: {item.cemail}</p>
