@@ -8,7 +8,6 @@ import ElectronicCategory from './clothing-electronic/ElectronicCategory.js';
 import ImgSearchApi from './ImgSearchApi.js';
 import clothing from './clothing-electronic/clothing.js';
 import productDetails from './clothing-electronic/electronic.js'
-import MainComp from './to-do-app-hoc/Main.js';
 import LifeCycleMethods from './Components/LifeCycleMethod';
 import PureComp from './Components/PureComp'
 import StateDemo from './Components/StateDemo.js'
@@ -29,8 +28,6 @@ function App() {
       {/* <ApiCall></ApiCall> */}
 
       {/* <ImgSearchApi></ImgSearchApi> */}
-
-      {/* <MainComp></MainComp> */}
 
       {/* <LifeCycleMethods msg='value from dsp method'></LifeCycleMethods> */}
       {/* <PureComp></PureComp> */}
