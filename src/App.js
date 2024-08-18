@@ -13,13 +13,18 @@ import PureComp from './Components/PureComp'
 import StateDemo from './Components/StateDemo.js'
 import RootComp from './Components/RootComp.js';
 import ToDoComp from './to-do-app/ToDoComp.js';
+import FormElements from './FormExamples/FormElement.js';
+import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
+import SignInComp from './FormExamples/SignInComp.js';
+import AfterSubmit from './FormExamples/AfterSubmit.js';
+
 
 function App() {
   return (
     <div className="App">
       {/* <ChildComp></ChildComp> */}
       {/* <Comp></Comp> */}
-      <ContactManager></ContactManager>
+      {/* <ContactManager></ContactManager> */}
 
       {/* <ClothingCategory data={clothing}></ClothingCategory>
       <p>-------------------------------------------------------------------------------</p>
@@ -34,6 +39,10 @@ function App() {
       {/* <StateDemo></StateDemo> */}
       {/* <RootComp></RootComp> */}
       {/* <ToDoComp></ToDoComp> */}
+
+      {/* <FormElements></FormElements> */}
+      {/* <SignInComp></SignInComp> */}
+      <AfterSubmit></AfterSubmit>
     </div>
   );
 }
