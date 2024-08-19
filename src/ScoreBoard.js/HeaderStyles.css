@@ -1,0 +1,5 @@
+.activeStatus {
+    background-color: black;
+    color: aquamarine;
+    box-shadow: 3px 3px 7px grey;
+}

@@ -17,7 +17,12 @@ import FormElements from './FormExamples/FormElement.js';
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
 import SignInComp from './FormExamples/SignInComp.js';
 import AfterSubmit from './FormExamples/AfterSubmit.js';
-
+import Board from './ScoreBoard.js/Board.js';
+import RankSort from './ScoreBoard.js/RankSort.js';
+import AgeSort from './ScoreBoard.js/AgeSort.js';
+import ScoreSort from './ScoreBoard.js/ScoreSort.js';
+import './ScoreBoard.js/board.css'
+import NameSort from './ScoreBoard.js/NameSort.js';
 
 function App() {
   return (
@@ -42,7 +47,19 @@ function App() {
 
       {/* <FormElements></FormElements> */}
       {/* <SignInComp></SignInComp> */}
-      <AfterSubmit></AfterSubmit>
+      {/* <AfterSubmit></AfterSubmit> */}
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Board></Board>}></Route>
+          <Route path='/rank' element={<RankSort></RankSort>}></Route>
+          <Route path='/name' element={<NameSort></NameSort>}></Route>
+          <Route path='/age' element={<AgeSort></AgeSort>}></Route>
+          <Route path='/points' element={<ScoreSort></ScoreSort>}></Route>
+
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
