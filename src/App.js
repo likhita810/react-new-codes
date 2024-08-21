@@ -14,7 +14,7 @@ import StateDemo from './Components/StateDemo.js'
 import RootComp from './Components/RootComp.js';
 import ToDoComp from './to-do-app/ToDoComp.js';
 import FormElements from './FormExamples/FormElement.js';
-import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
+import {BrowserRouter, Link,NavLink, Route, Routes} from 'react-router-dom'
 import SignInComp from './FormExamples/SignInComp.js';
 import AfterSubmit from './FormExamples/AfterSubmit.js';
 import Board from './ScoreBoard.js/Board.js';
@@ -23,6 +23,13 @@ import AgeSort from './ScoreBoard.js/AgeSort.js';
 import ScoreSort from './ScoreBoard.js/ScoreSort.js';
 import './ScoreBoard.js/board.css'
 import NameSort from './ScoreBoard.js/NameSort.js';
+import LoginPage from './NestedRoutes/LoginPage.js';
+import DashBoardComp from './NestedRoutes/DashBoardComp.js';
+import UserPage from './NestedRoutes/UserPage.js';
+import PageNotFound from './NestedRoutes/PageNotFound.js';
+import LoginPageFunc from './RouterHooks/LoginPageClsComp.js';
+import DashBoardHooks from './RouterHooks/DashBoardHooks.js';
+import InvalidUsername from './RouterHooks/Invalid.js';
 
 function App() {
   return (
@@ -49,7 +56,7 @@ function App() {
       {/* <SignInComp></SignInComp> */}
       {/* <AfterSubmit></AfterSubmit> */}
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path='/' element={<Board></Board>}></Route>
           <Route path='/rank' element={<RankSort></RankSort>}></Route>
@@ -58,6 +65,47 @@ function App() {
           <Route path='/points' element={<ScoreSort></ScoreSort>}></Route>
 
         </Routes>
+      </BrowserRouter> */}
+
+      {/* <BrowserRouter>
+
+        <Routes>
+          <Route path='/' element={<UserPage></UserPage>}>
+            <Route path='login' element={<LoginPage></LoginPage>}></Route>
+            <Route path='dashboard' element={<DashBoardComp userData = {{userName: 'likhi', role: 'sde'}}></DashBoardComp>}></Route>
+            <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
+          </Route>
+          <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
+        </Routes>
+
+      </BrowserRouter> */}
+
+      <BrowserRouter>
+
+        <NavLink to='/'>
+          {
+            ({isActive})=>
+            (
+              <button className={isActive?'activeStatus':'.inActiveStatus'}>Login</button>
+            )
+          }
+        </NavLink>
+
+        <NavLink to='/dashboard/:username/:role'>
+          {
+            ({isActive})=>
+            (
+              <button className={isActive?'activeStatus':'.inActiveStatus'}>dashboard</button>
+            )
+          }
+        </NavLink>
+
+        <Routes>
+          <Route path='/' element={<LoginPageFunc></LoginPageFunc>}></Route>
+          <Route path='/dashboard/:username/:role' element={<DashBoardHooks></DashBoardHooks>}></Route>
+          <Route path='/*' element={<InvalidUsername></InvalidUsername>}></Route>
+        </Routes>
+
       </BrowserRouter>
 
     </div>
