@@ -29,8 +29,8 @@ class ContactManager extends React.Component{
         else{
             this.setState({ipNumber:e.target.value})
         }
-
     }
+    
     handleSubmit=(e)=>{
         e.preventDefault()
 

@@ -27,9 +27,13 @@ import LoginPage from './NestedRoutes/LoginPage.js';
 import DashBoardComp from './NestedRoutes/DashBoardComp.js';
 import UserPage from './NestedRoutes/UserPage.js';
 import PageNotFound from './NestedRoutes/PageNotFound.js';
-import LoginPageFunc from './RouterHooks/LoginPageClsComp.js';
+import LoginPageFunc from './RouterHooks/LoginPageFunc.js';
 import DashBoardHooks from './RouterHooks/DashBoardHooks.js';
 import InvalidUsername from './RouterHooks/Invalid.js';
+import Dashbrd from './RouterHooks-LocalHost/Dashbrd.js';
+import LoginPg from './RouterHooks-LocalHost/LogInPg.js';
+import SignInFunc from './RouterHooks-LocalHost/SignInFunc.js';
+// import PageNotFnd from './RouterHooks-LocalHost/PageNotFnd.js'
 
 function App() {
   return (
@@ -80,7 +84,7 @@ function App() {
 
       </BrowserRouter> */}
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
 
         <NavLink to='/'>
           {
@@ -106,7 +110,17 @@ function App() {
           <Route path='/*' element={<InvalidUsername></InvalidUsername>}></Route>
         </Routes>
 
-      </BrowserRouter>
+      </BrowserRouter> */}
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LoginPg></LoginPg>}></Route>
+          <Route path='/dashboard/:username/:role' element={<Dashbrd></Dashbrd>}></Route>
+          <Route path='/signin' element={<SignInFunc></SignInFunc>}></Route>
+          {/* <Route path='/notfound' element={<PageNotFnd></PageNotFnd>}></Route> */}
+        </Routes>
+
+      </BrowserRouter>    
 
     </div>
   );
