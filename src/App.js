@@ -27,7 +27,7 @@ import LoginPage from './NestedRoutes/LoginPage.js';
 import DashBoardComp from './NestedRoutes/DashBoardComp.js';
 import UserPage from './NestedRoutes/UserPage.js';
 import PageNotFound from './NestedRoutes/PageNotFound.js';
-import LoginPageFunc from './RouterHooks/LoginPageClsComp.js';
+import LoginPageFunc from './RouterHooks/LoginPageFunc.js';
 import DashBoardHooks from './RouterHooks/DashBoardHooks.js';
 import InvalidUsername from './RouterHooks/Invalid.js';
 
